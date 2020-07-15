@@ -24,12 +24,16 @@ export { loadFromBlob } from "./blob";
 export { saveAsJSON, loadFromJSON } from "./json";
 export { saveToLocalStorage } from "./localStorage";
 
-const BACKEND_GET = process.env.REACT_APP_BACKEND_V1_GET_URL;
+const runtimeConfig = JSON.parse(
+  document.getElementById("excalidraw-runtime-config")!.textContent!,
+);
 
-const BACKEND_V2_POST = process.env.REACT_APP_BACKEND_V2_POST_URL;
-const BACKEND_V2_GET = process.env.REACT_APP_BACKEND_V2_GET_URL;
+const BACKEND_GET = runtimeConfig.REACT_APP_BACKEND_V1_GET_URL;
 
-export const SOCKET_SERVER = process.env.REACT_APP_SOCKET_SERVER_URL;
+const BACKEND_V2_POST = runtimeConfig.REACT_APP_BACKEND_V2_POST_URL;
+const BACKEND_V2_GET = runtimeConfig.REACT_APP_BACKEND_V2_GET_URL;
+
+export const SOCKET_SERVER = runtimeConfig.REACT_APP_SOCKET_SERVER_URL;
 
 export type EncryptedData = {
   data: ArrayBuffer;

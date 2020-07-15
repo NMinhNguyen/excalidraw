@@ -4,6 +4,7 @@
 .now
 .vscode
 build
+target/
 firebase/
 logs
 node_modules
